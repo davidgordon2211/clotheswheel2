@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_092853) do
+ActiveRecord::Schema.define(version: 2019_06_22_110630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,25 @@ ActiveRecord::Schema.define(version: 2019_06_22_092853) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "photo"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "outfits", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item1_id"
+    t.bigint "item2_id"
+    t.bigint "item3_id"
+    t.bigint "item4_id"
+    t.bigint "item5_id"
+    t.index ["item1_id"], name: "index_outfits_on_item1_id"
+    t.index ["item2_id"], name: "index_outfits_on_item2_id"
+    t.index ["item3_id"], name: "index_outfits_on_item3_id"
+    t.index ["item4_id"], name: "index_outfits_on_item4_id"
+    t.index ["item5_id"], name: "index_outfits_on_item5_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +54,9 @@ ActiveRecord::Schema.define(version: 2019_06_22_092853) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "outfits", "items", column: "item1_id"
+  add_foreign_key "outfits", "items", column: "item2_id"
+  add_foreign_key "outfits", "items", column: "item3_id"
+  add_foreign_key "outfits", "items", column: "item4_id"
+  add_foreign_key "outfits", "items", column: "item5_id"
 end
