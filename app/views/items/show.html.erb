@@ -1,0 +1,6 @@
+<%= cl_image_tag @item.photo, height: 300, width: 300, crop: :fill %>
+<h1><%= @item.name %></h1>
+<h2><%= @item.clothes_type %></h2>
+<h2><%= @item.color %></h2>
+<%= link_to "Add another item", new_item_path, class: "nav-link"  %>
+<%= link_to "View all of your clothes", items_path(current_user), class: "nav-link" %>

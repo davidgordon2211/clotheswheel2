@@ -1,2 +1,4 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Clothes Wheel</h1>
+
+<%= link_to "View Clothes", items_path(current_user), class: "nav-link" %>
+<%= link_to "Add new clothes", new_item_path, class: "nav-link" %>

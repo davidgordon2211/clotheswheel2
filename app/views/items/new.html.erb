@@ -1,0 +1,16 @@
+<div class="container-1" style="margin-top: 80px">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <h1 class="mb-4">Add new clothing item</h1>
+      <%= simple_form_for [@item] do |f| %>
+      <%= f.input :name, label: "Name" %>
+      <%= f.input :clothes_type, label: "Type of clothing", collection: ["Jacket", "Coat", "Blazer", "Suit-blazer", "Over-shirt", "T-shirt", "Shirt", "Sweatshirt", "Cardigan", "Jumper", "Dress", "Skirt", "Jeans", "Chinos", "Suit-trousers", "Smart-Trousers"]%>
+      <%= f.input :color, label: "Color" %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+</div>
